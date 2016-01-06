@@ -18,9 +18,9 @@
 #include <v8.h>
 #include <node.h>
 #include "mp3tech.h"
+#include "nan.h"
 
 using namespace v8;
-
 
 namespace ns_mp3info {
 
@@ -30,12 +30,12 @@ namespace ns_mp3info {
         int scantype;
         int fullscan_vbr;
         mp3info* mp3;
-        
+
         std::string* error;
 
-        Persistent<Function> callback;
+        Nan::Persistent<Function> callback;
     };
-    
+
     void node_get_mp3info_async (uv_work_t *req);
     void node_get_mp3info_after (uv_work_t *req);
 
