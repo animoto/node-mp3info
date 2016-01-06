@@ -37,6 +37,7 @@ char* stringArgToStr(const v8::Local<v8::Value> arg) {
 }
 
 NAN_METHOD(node_get_mp3_info) {
+    Nan::HandleScope scope;
 
     char *filename = stringArgToStr(info[0]);
 
@@ -78,6 +79,7 @@ void node_get_mp3info_async (uv_work_t *req) {
 }
 
 void node_get_mp3info_after (uv_work_t *req) {
+    Nan::HandleScope scope;
     mp3info_loop_data* data = (mp3info_loop_data*) req->data;
 
     Nan::TryCatch try_catch;
